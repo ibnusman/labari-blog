@@ -1,0 +1,40 @@
+.menubar {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.navbar-brand img {
+  max-height: 50px; /* Adjust as needed */
+  width: auto; /* Keeps the aspect ratio */
+}
+
+.logo {
+  font-family: "Pacifico", cursive; /* A stylish Google Font */
+  font-size: 2rem; /* Larger font for emphasis */
+  font-weight: bold;
+  background: linear-gradient(
+    to right,
+    #393939,
+    #53c0e4
+  ); /* Gradient text effect */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-decoration: none; /* No underline */
+}
+
+.logo .highlight {
+  font-family: "Roboto", sans-serif; /* Different font for contrast */
+  font-weight: 700; /* Extra bold for emphasis */
+  color: #007bff; /* Solid color for contrast */
+}
+
+.logo:hover {
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+  transform: scale(1.05); /* Slight enlargement on hover */
+  transition: all 0.3s ease; /* Smooth animation */
+}
+
+.nav-item {
+  align-items: left;
+}
