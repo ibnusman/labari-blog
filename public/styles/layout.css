@@ -1,3 +1,10 @@
+:root {
+  --links-button: #4caf50;
+  --allbackground: #f4f4f4;
+  --hovercolor: #a5d6a7;
+  --tx-color: #333333;
+}
+
 .menubar {
   margin-left: 20px;
   margin-right: 20px;
@@ -14,8 +21,8 @@
   font-weight: bold;
   background: linear-gradient(
     to right,
-    #393939,
-    #53c0e4
+    #4caf50,
+    #fafafa
   ); /* Gradient text effect */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -37,4 +44,16 @@
 
 .nav-item {
   align-items: left;
+}
+
+.btnew {
+  color: var(--tx-color);
+}
+
+button {
+  color: var(--links-button);
+}
+
+.formshape {
+  margin: 50px;
 }
