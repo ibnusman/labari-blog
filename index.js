@@ -9,18 +9,27 @@ const port = 3000;
 
 //setting the system to route the public folder
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+
+//creating an arry for the blogs
+const blogs=[]
+
 
 
 //displaying the first page
 app.get("/",(req,res)=>{
-    res.render("index.ejs");
+    res.render("index.ejs",{posts:blogs});
 });
 
-
+//save the post in a txt file  Testing this  
 app.post("/create-post",(req,res)=>{
-    console.log(req.body.title);
-    writeFile(`${req.body.title}.txt`, `${req.body.brief} ${req.body.content}  `, 'utf8',()=>{}); 
+    //pushing all the elements  
+    blogs.push(req.body);
+    
+    // writeFile(`${req.body.title}.txt`, `${req.body.brief} ${req.body.content}  `, 'utf8',()=>{}); 
+
+    res.render("index.ejs", {posts:blogs});
 })
 
 
