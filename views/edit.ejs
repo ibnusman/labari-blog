@@ -1,0 +1,41 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Edit Blog</h1>
+<form class="formshape" action="create-post" method="POST">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input
+      name="title"
+      type="text"
+      class="form-control"
+      id="test"
+      value="<%= post.title %>"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Brief</label>
+    <input
+      name="brief"
+      type="text"
+      class="form-control"
+      id=""
+      placeholder="Blog summary"
+      value="<%=post.brief%>"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Content</label>
+    <textarea
+      name="content"
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      rows="3"
+    >
+<%=post.content  %></textarea
+    >
+  </div>
+  <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
+
+<%- include("partials/footer.ejs") %>

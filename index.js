@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { writeFile } from 'node:fs';
+import { title } from "node:process";
 
 //setting port connection 
 
@@ -13,7 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 //creating an arry for the blogs
-const blogs=[]
+let blogs=[];
+let test1;
 
 
 
@@ -33,6 +35,10 @@ app.post("/create-post",(req,res)=>{
 })
 
 
+app.post("/edit",(req,res)=>{
+    const post = blogs.find(blog => blogs.title === req.body.title);  // Find the post to edit
+    res.render("edit.ejs", { post });  // Send the post data to the 'edit' view
+});
 
 
 app.get("/write",(req,res)=>{
