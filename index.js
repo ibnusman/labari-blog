@@ -36,7 +36,8 @@ app.post("/create-post",(req,res)=>{
 
 
 app.post("/edit",(req,res)=>{
-    const post = blogs.find(blog => blogs.title === req.body.title);  // Find the post to edit
+ const post = blogs.find(blog => blogs.title === req.body.title);  // Find the post to edit
+    console.log(post)  // Find the post to edit
     res.render("edit.ejs", { post });  // Send the post data to the 'edit' view
 });
 
@@ -44,7 +45,31 @@ app.post("/edit",(req,res)=>{
 app.get("/write",(req,res)=>{
     res.render("write.ejs");
 
-})
+});
+app.post("/update-post", (req,res)=>{
+    const updatePost = blogs.map(blog =>{
+        blogs.title === req.body.title;
+    });
+ const {title, brief, content } = req.body;
+ const post = blogs.find(blog => blogs.title === req.body.title);  // Find the post to edit
+
+ if(post)
+ {
+ post.title = title || post.title;
+ post.brief = brief || post.brief;
+ post.content= content || post.content;
+
+ res.redirect("/");
+ }
+ else{
+    res.status(404).send("Not found");
+ }
+
+
+
+ console.log(blogs.title);
+ //res.render("index.ejs",{posts:blogs});
+});
 //setting the listening port 
 app.listen(port, ()=>{
     console.log(`listening on port ${port}`);
