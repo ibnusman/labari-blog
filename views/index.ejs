@@ -10,5 +10,9 @@ posts[i].content; %>
   <input type="hidden" name="title" value="<%= title %>" />
   <input class="btn btn-primary" name="edit" type="submit" value="Edit" />
 </form>
+<form action="/delete-post" method="POST">
+  <input type="hidden" name="title" value="<%= title %>" />
+  <input class="btn btn-danger" type="submit" value="Delete" />
+</form>
 
 <% } %> <%- include("partials/footer.ejs") %>

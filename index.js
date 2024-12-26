@@ -50,12 +50,6 @@ app.get("/write",(req,res)=>{
 app.post("/update-post", (req,res)=>{
 
 
-
-//   const { title, brief, content } = req.body;
-
-
-//   const post = blogs.find(blog => blog.title === req.body.title);
-//   console.log("Post found:", post);
   const { originalTitle, title, brief, content } = req.body;
 
   // Find the post using the original title
@@ -74,6 +68,23 @@ app.post("/update-post", (req,res)=>{
   }
 
 
+});
+
+app.post("/delete-post", (req, res) => {
+  const { title } = req.body;
+  console.log("Title to delete:", title);
+
+  // Find the index of the blog post by title
+  const postIndex = blogs.findIndex(blog => blog.title === title);
+  
+  if (postIndex !== -1) {
+    // Remove the post from the array
+    blogs.splice(postIndex, 1);
+  
+    res.redirect("/");  // Redirect to the homepage after deletion
+  } else {
+    res.status(404).send("Blog post not found");
+  }
 });
 //setting the listening port 
 app.listen(port, ()=>{
