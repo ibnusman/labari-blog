@@ -2,6 +2,7 @@
 
 <h1>Edit Blog</h1>
 <form class="formshape" action="update-post" method="POST">
+  <input type="hidden" name="originalTitle" value="<%= post.title %>" />
   <div class="form-group">
     <label for="exampleFormControlInput1">Title</label>
     <input

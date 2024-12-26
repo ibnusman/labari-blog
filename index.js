@@ -15,7 +15,6 @@ app.use(express.json());
 
 //creating an arry for the blogs
 let blogs=[];
-let test1;
 
 
 
@@ -50,14 +49,17 @@ app.get("/write",(req,res)=>{
 });
 app.post("/update-post", (req,res)=>{
 
-  console.log("Starting /update-post route");
-  console.log("Blogs array:", blogs);
-
-  const { title, brief, content } = req.body;
 
 
-  const post = blogs.find(blog => blog.title === req.body.title);
-  console.log("Post found:", post);
+//   const { title, brief, content } = req.body;
+
+
+//   const post = blogs.find(blog => blog.title === req.body.title);
+//   console.log("Post found:", post);
+  const { originalTitle, title, brief, content } = req.body;
+
+  // Find the post using the original title
+  const post = blogs.find(blog => blog.title === originalTitle);
 
   if (post) {
     post.title = title || post.title;
