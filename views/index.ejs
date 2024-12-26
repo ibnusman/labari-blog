@@ -7,6 +7,8 @@ posts[i].content; %>
 <hr />
 <p><%=fullcontent%></p>
 <form action="/edit" method="POST">
+  <input type="hidden" name="title" value="<%= title %>" />
   <input class="btn btn-primary" name="edit" type="submit" value="Edit" />
 </form>
+
 <% } %> <%- include("partials/footer.ejs") %>
